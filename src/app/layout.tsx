@@ -20,7 +20,10 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
         <Providers>
-          <div className="light:bg-slate-100 dark:bg-slate-800">
+          <div
+            style={{ transition: "0.5s" }}
+            className="light:bg-slate-100 dark:bg-slate-800 transition"
+          >
             <Header />
             <main className="min-h-screen">{children}</main>
           </div>

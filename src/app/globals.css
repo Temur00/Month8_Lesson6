@@ -25,5 +25,6 @@
 @layer base {
   body {
     @apply dark:bg-gray-800 bg-white;
+    transition: 0.5s;
   }
 }

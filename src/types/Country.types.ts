@@ -1,16 +1,16 @@
 export type CountryTypes = {
   name: {
-    common: string; // Common name of the country
-    official: string; // Official name of the country
+    common: string;
+    official: string;
     nativeName: {
-      [key: string]: string; // Native names of the country in various languages
+      [key: string]: string;
     };
   };
-  capital: string; // Capital city of the country
+  capital: string;
   flags: {
-    svg: string; // URL of the SVG flag
-    png: string; // URL of the PNG flag
+    svg: string;
+    png: string;
   };
-  population: number; // Population of the country
-  region: string; // Region of the country
+  population: number;
+  region: string;
 };
