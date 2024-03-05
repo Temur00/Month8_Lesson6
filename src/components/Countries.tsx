@@ -3,6 +3,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { CountryTypes } from "@/types/Country.types";
+import Link from "next/link";
+import Image from "next/image";
 
 const Countries = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -62,14 +64,17 @@ const Countries = () => {
         {filteredCountries.map((country: any, index) => (
           <div
             key={index}
-            className="dark:text-white bg-slate-100 dark:bg-slate-700 rounded-lg outline-none overflow-hidden hover:scale-105 transition duration-500 cursor-pointer object-cover hover:shadow-2xl dark:hover:shadow-slate-600 border-2 dark:border-none w-72"
-            style={{ width: "18em", height: "22em" }}
+            className="dark:text-white bg-slate-100 dark:bg-slate-700 rounded-lg outline-none overflow-hidden hover:scale-105 transition duration-500 cursor-pointer object-cover hover:shadow-2xl dark:hover:shadow-slate-600 border-2 dark:border-none w-64 h-96"
+            // style={{ width: "18em", height: "22em" }}
           >
-            <img
-              className="transition duration-300 ease-in-out hover:scale-110 w-72 h-44"
-              src={country.flags.svg}
-              alt={country.name?.common}
-            />
+            <div style={{ width: "280px", height: "160px" }}>
+              <img
+                className="transition duration-300 ease-in-out hover:scale-110 "
+                src={country.flags.png}
+                alt={country.name?.common}
+                style={{ height: "100%", width: "100%" }}
+              />
+            </div>
             <div className="texts p-5">
               <p className="font-bold text-xl">{country.name?.common}</p>
               <p className="pt-5 flex">
@@ -79,9 +84,12 @@ const Countries = () => {
               <p className="flex">
                 <p className="font-semibold pr-1">Region:</p> {country.region}
               </p>
-              <p className="flex">
+              <p className="flex mb-8">
                 <p className="font-semibold pr-1">Region:</p> {country.capital}
               </p>
+              <Link href={`/${country.id}`}>
+                <button>Read more</button>
+              </Link>
             </div>
           </div>
         ))}
